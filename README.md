@@ -1,5 +1,6 @@
 # Flex-HTMLDeepDive
 Flex-HTMLDeepDive periode 2
 
-Sam Derakhshandeh
-klas: sd1ab
+	Sam Derakhshandeh
+ 
+	SD1AB
