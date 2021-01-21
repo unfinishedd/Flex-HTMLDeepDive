@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foto-slider</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script>
+      let fotonummer, fotobreedte, aantalfotos, fotoslider;
+      function setupFotoslider() {
+        fotonummer = 0;
+        fotobreedte = 400;
+
+        fotoslider = document.getElementById("fotoslider");
+        let volgendeKnop = document.getElementById("volgende-btn");
+        let vorigeKnop = document.getElementById("vorige-btn");
+
+        aantalfotos = fotoslider.children.length;
+        console.log(aantalfotos);
+
+        volgendeKnop.addEventListener("click", volgendeFoto);
+        vorigeKnop.addEventListener("click", vorigeFoto);
+      }
+
+      function volgendeFoto() {
+        fotonummer += 1;
+
+        if (fotonummer === aantalfotos) {
+          fotonummer = 0;
+        }
+
+        let afstandNaarLinks = -0.5 * (fotonummer * fotobreedte);
+        fotoslider.style.left = afstandNaarLinks + "px";
+      }
+
+      function vorigeFoto() {
+        fotonummer -= 1;
+
+        if (fotonummer < 0) {
+          fotonummer = aantalfotos - 1;
+        }
+
+        let afstandNaarLinks = -0.5 * (fotonummer * fotobreedte);
+        fotoslider.style.left = afstandNaarLinks + "px";
+      }
+
+      document.addEventListener("DOMContentLoaded", setupFotoslider);
+    </script>
+  </head>
+  <body>
+    <div id="flexbox">
+      <div id="viewport">
+        <div id="fotoslider">
+          <div class="foto"><img src="images/foto1.jpg" /></div>
+          <div class="foto"><img src="images/foto2.jpg" /></div>
+          <div class="foto"><img src="images/foto3.jpg" /></div>
+          <div class="foto"><img src="images/foto4.jpg" /></div>
+          <div class="foto"><img src="images/foto5.jpg" /></div>
+        </div>
+      </div>
+      <div id="controls">
+        <button id="vorige-btn">Vorige</button>
+        <button id="volgende-btn">Volgende</button>
+      </div>
+    </div>
+  </body>
+</html>

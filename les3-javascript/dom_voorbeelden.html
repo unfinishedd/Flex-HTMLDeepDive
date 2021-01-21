@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function haalElementenOp() {
+        let fotoslider = document.getElementById("fotoslider");
+        console.log(fotoslider);
+        let eersteFotoDiv = document.querySelector(".foto");
+        console.log(eersteFotoDiv);
+        let alleFotoDivs = document.querySelectorAll(".foto");
+        console.log(alleFotoDivs);
+
+        // Kijk met de web inspector wat er gebeurt met het element, wat verandert er?
+
+        for (let i = 0; i < alleFotoDivs.length; i++) {
+          let foto = alleFotoDivs[i];
+          foto.style.borderColor = "#FF0000";
+          foto.style.borderStyle = "solid";
+          foto.style.borderWidth = "5px";
+          foto.style.width = "100px";
+        }
+
+        // Class aanpassen
+        fotoslider.className = "fotoslider";
+
+        // Inhoud tussen tags aanpassen
+        // fotoslider.innerHTML = "Alle fotos vervangen door deze tekst!";
+
+        //  Style aanpassen
+        fotoslider.style.borderColor = "#0000FF";
+        fotoslider.style.borderStyle = "solid";
+        fotoslider.style.borderWidth = "5px";
+        fotoslider.style.position = "absolute";
+        fotoslider.style.left = "100px";
+      }
+      window.addEventListener("DOMContentLoaded", haalElementenOp);
+    </script>
+  </head>
+  <body>
+    <div id="fotoslider">
+      <div class="foto"><img src="images/foto1.jpg" /></div>
+      <div class="foto"><img src="images/foto2.jpg" /></div>
+      <div class="foto"><img src="images/foto3.jpg" /></div>
+      <div class="foto"><img src="images/foto4.jpg" /></div>
+      <div class="foto"><img src="images/foto5.jpg" /></div>
+    </div>
+  </body>
+</html>
